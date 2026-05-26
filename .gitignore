@@ -1,3 +1,10 @@
+# Secrets
+.env
+.env.*
+secrets/
+config/secrets.yaml
+credentials.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
