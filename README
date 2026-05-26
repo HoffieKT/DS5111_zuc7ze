@@ -1,1 +1,43 @@
-hi
+# Virtual Machine (VM) Set-up Guide
+
+## Prerequisites to this guide
+
+- User has a running VM
+- SSH key is connected to Github account
+- Repository has been cloned
+
+## Initial VM Set-up
+
+Run init.sh using the following command in the VM terminal:
+  - bash scripts/init.sh
+
+This makes the VM up to date with package versions, grants ability to use makefiles,
+allows creation of python virtual environments, and installs a useful tool for 
+listing files in tree form.
+
+To test, run the 'tree' command. If everything has installed correctly, it should 
+run without errors.
+
+## Configure Git Credentials
+
+Run init_git_creds.sh with the following command in the VM terminal:
+  - bash scripts.init_git_creds.sh
+
+Expected output should be:
+
+  user.email=<your email>
+  user.name=<your github username>
+
+## Create Python Virtual Environment
+
+In the root of the repository, run the 'make update' command.
+
+This creates a virual environment, upgrades pip, and installs needed packages in the 
+requirements.txt file.
+
+To activate the environment, run the following command in the VM terminal:
+  - . env/bin/activate
+
+Verify the proper packages have been installed by running the 'pip list' command.
+
+
