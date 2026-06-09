@@ -17,23 +17,32 @@ logging.basicConfig(
 
 # Functions
 
-def id_checker(id):
-    # checks if the Youtube ID has 11 characters and contains that proper Character Set
-    return bool(re.fullmatch(r'^[A-Za-z0-9_-]{11}$', id))
+def youtube_id_checker(youtube_id):
+    '''
+    checks if the Youtube ID has 11 characters and contains that proper Character Set
+    '''
+    return bool(re.fullmatch(r'^[A-Za-z0-9_-]{11}$', youtube_id))
 
 def main():
+    '''
+    Function runs main script logic to check valid Youtube IDs
+
+    Output: If valid, echoes the Youtube ID. Else, nothing is echoed and an error is logged
+
+    Exception: Handles Keyboard interrupts
+    '''
     try:
         # iterate through all lines in user input or cat command input
         for line in sys.stdin:
             # strip line of whitespace
-            id = line.strip()
+            youtube_id = line.strip()
             # checks if Youtube ID is valid
-            if id_checker(id):
+            if youtube_id_checker(youtube_id):
                 # echo Youtube ID to user
-                sys.stdout.write(f"{id}\n")
+                sys.stdout.write(f"{youtube_id}\n")
             else:
                 # writes error log to proper file
-                logging.error(f"Invalid Youtube ID Provided: {id}")
+                logging.error(f"Invalid Youtube ID Provided: {youtube_id}")
     except KeyboardInterrupt:
         # handles Ctrl-C user input
         sys.exit(0)
